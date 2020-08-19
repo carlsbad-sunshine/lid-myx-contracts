@@ -5,6 +5,7 @@ import "@openzeppelin/upgrades/contracts/Initializable.sol";
 import "@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol";
 import "@openzeppelin/contracts-ethereum-package/contracts/ownership/Ownable.sol";
 import "./library/BasisPoints.sol";
+import "./myx.sol";
 
 
 contract MyxDaoFund is Initializable, Ownable {
@@ -46,39 +47,46 @@ contract MyxDaoFund is Initializable, Ownable {
         _transferOwnership(owner);
     }
 
-    function moveToPresale() external {
-        require(!hasMovedToPresale);
-        hasMovedToPresale = true;
-        token.transfer(address(0xC1c236950149Ca9955AE1a3505cbe9F4BBC26Bdc), 200000000 ether);
+    function freeze() external onlyOwner {
+        require(token.balanceOf(address(this)) > 0, "Must have tokens to stake.");
+        MYXNetwork myxContract = MYXNetwork(address(token));
+        myxContract.freeze(token.balanceOf(address(this)));
     }
 
-    function moveToPresale2() external {
-        require(!hasMovedToPresale2);
-        hasMovedToPresale2 = true;
-        token.transfer(address(0xC1c236950149Ca9955AE1a3505cbe9F4BBC26Bdc), 50000000 ether);
-    }
-
-    function claimToken() external onlyAfterStart {
+    function unfreeze(uint amount) external onlyOwner onlyAfterStart {
         require(releaseStart != 0, "Has not yet started.");
+        MYXNetwork myxContract = MYXNetwork(address(token));
         uint cycle = getCurrentCycleCount();
+        uint maxClaim = cycle.mul(startingTokens.mulBP(releaseBP));
         uint totalClaimAmount = cycle.mul(startingTokens.mulBP(releaseBP));
-        uint toClaim = totalClaimAmount.sub(claimedTokens);
-        if (token.balanceOf(address(this)) < toClaim) toClaim = token.balanceOf(address(this));
-        claimedTokens = claimedTokens.add(toClaim);
-        token.transfer(releaseWallet, toClaim);
+        uint toClaim = totalClaimAmount.sub(maxClaim);
+        if (myxContract.frozenOf(address(this)) < toClaim) toClaim = myxContract.frozenOf(address(this));
+        require(amount <= toClaim, "Cannot unstake more than available to claim.");
+        claimedTokens = claimedTokens.add(amount);
+        myxContract.unfreeze(amount);
+    }
+
+    function collect() external onlyAfterStart {
+        MYXNetwork myxContract = MYXNetwork(address(token));
+        myxContract.collect();
+    }
+
+    function claim() external onlyAfterStart {
+        token.transfer(releaseWallet, token.balanceOf(address(this)));
     }
 
     function startRelease(address _releaseWallet) external onlyOwner {
-        require(releaseStart == 0, "Has already started.");
-        require(token.balanceOf(address(this)) != 0, "Must have some lid deposited.");
+        require(startingTokens == 0);
         releaseWallet = _releaseWallet;
-        startingTokens = token.balanceOf(address(this));
-        releaseStart = now.add(24 hours);
+        startingTokens = 50000000 ether;
+        releaseStart = now.sub(24 hours);
+        releaseInterval = 180 days;
+        releaseBP = 1000;
     }
 
     function getCurrentCycleCount() public view returns (uint) {
         if (now <= releaseStart) return 0;
-        return now.sub(releaseStart).div(releaseInterval).add(1);
+        return now.sub(releaseStart).div(releaseInterval);
     }
 
 }

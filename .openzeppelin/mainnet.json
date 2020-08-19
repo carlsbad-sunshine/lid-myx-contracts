@@ -815,11 +815,11 @@
       }
     },
     "MyxDaoFund": {
-      "address": "0x97DbC9Cc0D905c7110779AF30380Fe73fC7adbb0",
-      "constructorCode": "60806040526110ee806100136000396000f3fe",
-      "bodyBytecodeHash": "280218def2f954949b430d0c12ca4937ad05ce50352e0670a210e03cbbe98049",
-      "localBytecodeHash": "f30a448736b64e9a377cdc4a6870204858b4c2575124b15c69a456612c0e314a",
-      "deployedBytecodeHash": "f30a448736b64e9a377cdc4a6870204858b4c2575124b15c69a456612c0e314a",
+      "address": "0x1A3A36CA8Bd92007B37ED0923C39999a0F574D62",
+      "constructorCode": "60806040526112ad806100136000396000f3fe",
+      "bodyBytecodeHash": "6f6f1d48e4f87326478c901c11964cd66a7a80997abce657418ebebda6d4cc31",
+      "localBytecodeHash": "0a6ff8ee3f44c4e5cf65b4e0554fec35ba2a5d8a3e8acb41a779a6e086c72ffb",
+      "deployedBytecodeHash": "0a6ff8ee3f44c4e5cf65b4e0554fec35ba2a5d8a3e8acb41a779a6e086c72ffb",
       "types": {
         "t_bool": {
           "id": "t_bool",
@@ -849,113 +849,113 @@
           "contract": "Initializable",
           "path": "@openzeppelin\\upgrades\\contracts\\Initializable.sol",
           "label": "initialized",
-          "astId": 6561,
+          "astId": 7621,
           "type": "t_bool",
-          "src": "757:24:30"
+          "src": "757:24:31"
         },
         {
           "contract": "Initializable",
           "path": "@openzeppelin\\upgrades\\contracts\\Initializable.sol",
           "label": "initializing",
-          "astId": 6563,
+          "astId": 7623,
           "type": "t_bool",
-          "src": "876:25:30"
+          "src": "876:25:31"
         },
         {
           "contract": "Initializable",
           "path": "@openzeppelin\\upgrades\\contracts\\Initializable.sol",
           "label": "______gap",
-          "astId": 6625,
+          "astId": 7685,
           "type": "t_array:50<t_uint256>",
-          "src": "1982:29:30"
+          "src": "1982:29:31"
         },
         {
           "contract": "Ownable",
           "path": "@openzeppelin\\contracts-ethereum-package\\contracts\\ownership\\Ownable.sol",
           "label": "_owner",
-          "astId": 6333,
+          "astId": 7393,
           "type": "t_address",
-          "src": "526:22:27"
+          "src": "526:22:28"
         },
         {
           "contract": "Ownable",
           "path": "@openzeppelin\\contracts-ethereum-package\\contracts\\ownership\\Ownable.sol",
           "label": "______gap",
-          "astId": 6446,
+          "astId": 7506,
           "type": "t_array:50<t_uint256>",
-          "src": "2471:29:27"
+          "src": "2471:29:28"
         },
         {
           "contract": "MyxDaoFund",
           "path": "..\\..\\D\\LID\\lid-simplified-presale-contracts\\contracts\\MyxDaoFund.sol",
           "label": "releaseInterval",
-          "astId": 1728,
+          "astId": 1729,
           "type": "t_uint256",
-          "src": "497:27:5"
+          "src": "518:27:5"
         },
         {
           "contract": "MyxDaoFund",
           "path": "..\\..\\D\\LID\\lid-simplified-presale-contracts\\contracts\\MyxDaoFund.sol",
           "label": "releaseStart",
-          "astId": 1730,
+          "astId": 1731,
           "type": "t_uint256",
-          "src": "531:24:5"
+          "src": "552:24:5"
         },
         {
           "contract": "MyxDaoFund",
           "path": "..\\..\\D\\LID\\lid-simplified-presale-contracts\\contracts\\MyxDaoFund.sol",
           "label": "releaseBP",
-          "astId": 1732,
+          "astId": 1733,
           "type": "t_uint256",
-          "src": "562:21:5"
+          "src": "583:21:5"
         },
         {
           "contract": "MyxDaoFund",
           "path": "..\\..\\D\\LID\\lid-simplified-presale-contracts\\contracts\\MyxDaoFund.sol",
           "label": "startingTokens",
-          "astId": 1734,
+          "astId": 1735,
           "type": "t_uint256",
-          "src": "592:26:5"
+          "src": "613:26:5"
         },
         {
           "contract": "MyxDaoFund",
           "path": "..\\..\\D\\LID\\lid-simplified-presale-contracts\\contracts\\MyxDaoFund.sol",
           "label": "claimedTokens",
-          "astId": 1736,
+          "astId": 1737,
           "type": "t_uint256",
-          "src": "625:25:5"
+          "src": "646:25:5"
         },
         {
           "contract": "MyxDaoFund",
           "path": "..\\..\\D\\LID\\lid-simplified-presale-contracts\\contracts\\MyxDaoFund.sol",
           "label": "token",
-          "astId": 1738,
+          "astId": 1739,
           "type": "t_address",
-          "src": "659:20:5"
+          "src": "680:20:5"
         },
         {
           "contract": "MyxDaoFund",
           "path": "..\\..\\D\\LID\\lid-simplified-presale-contracts\\contracts\\MyxDaoFund.sol",
           "label": "releaseWallet",
-          "astId": 1740,
+          "astId": 1741,
           "type": "t_address",
-          "src": "688:21:5"
+          "src": "709:21:5"
         },
         {
           "contract": "MyxDaoFund",
           "path": "..\\..\\D\\LID\\lid-simplified-presale-contracts\\contracts\\MyxDaoFund.sol",
           "label": "hasMovedToPresale",
-          "astId": 1742,
+          "astId": 1743,
           "type": "t_bool",
-          "src": "718:22:5"
+          "src": "739:22:5"
         },
         {
           "contract": "MyxDaoFund",
           "path": "..\\..\\D\\LID\\lid-simplified-presale-contracts\\contracts\\MyxDaoFund.sol",
           "label": "hasMovedToPresale2",
-          "astId": 1744,
+          "astId": 1745,
           "type": "t_bool",
-          "src": "747:23:5"
+          "src": "768:23:5"
         }
       ],
       "warnings": {
@@ -965,20 +965,7 @@
         "hasInitialValuesInDeclarations": false,
         "uninitializedBaseContracts": [],
         "storageUncheckedVars": [],
-        "storageDiff": [
-          {
-            "action": "append",
-            "updated": {
-              "index": 13,
-              "contract": "MyxDaoFund",
-              "path": "..\\..\\D\\LID\\lid-simplified-presale-contracts\\contracts\\MyxDaoFund.sol",
-              "label": "hasMovedToPresale2",
-              "astId": 1744,
-              "type": "t_bool",
-              "src": "747:23:5"
-            }
-          }
-        ]
+        "storageDiff": []
       }
     }
   },
@@ -1015,7 +1002,7 @@
       {
         "address": "0xa065c5bf44a793f1C96176C6060DC51B28fb5751",
         "version": "1.0.0",
-        "implementation": "0x97DbC9Cc0D905c7110779AF30380Fe73fC7adbb0",
+        "implementation": "0x1A3A36CA8Bd92007B37ED0923C39999a0F574D62",
         "admin": "0x722644eda7B5AFf249945849B15cF1531e6812df",
         "kind": "Upgradeable"
       }
